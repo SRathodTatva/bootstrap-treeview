@@ -254,14 +254,14 @@
 		For performance we also take this opportunity to
 		index nodes in a flattened structure
 	*/
-	Tree.prototype.setInitialStates = function (node, level) {
+	Tree.prototype.setInitialStates = function (currentnode, level) {
 
-		if (!node.nodes) return;
+		if (!currentnode.nodes) return;
 		level += 1;
 
-		var parent = node;
+		var parent = currentnode;
 		var _this = this;
-		$.each(node.nodes, function checkStates(index, node) {
+		$.each(currentnode.nodes, function checkStates(index, node) {
 
 			// nodeId : unique, incremental identifier
 			node.nodeId = _this.nodes.length;
